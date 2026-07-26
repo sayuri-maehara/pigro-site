@@ -1,0 +1,7 @@
+{
+  "name": "pigro-corporate-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Pigro株式会社 コーポレートサイト（静的HTML + Vercel Functions）"
+}
