@@ -142,7 +142,7 @@ ul,ol{list-style:none; padding:0}
 
 /* ============ Hero ============ */
 .hero{padding:clamp(56px,9vw,104px) 0 clamp(64px,9vw,110px)}
-.hero-grid{display:grid; grid-template-columns:1fr 300px; gap:clamp(32px,6vw,72px); align-items:center}
+.hero-grid{display:grid; grid-template-columns:1fr 320px; gap:clamp(32px,6vw,72px); align-items:start}
 .eyebrow{
   font-family:var(--f-util); font-size:11.5px; font-weight:400; letter-spacing:.22em;
   color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:12px; margin-bottom:26px;
@@ -161,20 +161,8 @@ ul,ol{list-style:none; padding:0}
 .hero-note{font-size:13px; color:var(--ink-soft); margin-bottom:34px}
 .hero-cta{display:flex; flex-wrap:wrap; gap:14px}
 
-/* signature: 散らばった線が整い、一本だけ前へ出る */
-.motif{display:flex; flex-direction:column; gap:13px; padding:4px 0}
-.motif .bar{
-  height:9px; border-radius:1px; background:var(--sand-2);
-  width:var(--w); transform:translateX(var(--dx)); opacity:0;
-  animation:settle .95s cubic-bezier(.16,.84,.28,1) forwards; animation-delay:var(--d);
-}
-.motif .bar--go{
-  background:var(--navy);
-  animation:settle .95s cubic-bezier(.16,.84,.28,1) forwards, advance .8s cubic-bezier(.16,.84,.28,1) 1.55s forwards;
-}
-@keyframes settle{to{transform:translateX(0); opacity:1}}
-@keyframes advance{to{width:100%}}
-.motif-cap{margin-top:22px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
+/* ヒーロー右側：代表写真（.prof-fig のスタイルを流用） */
+.hero-fig{max-width:320px; margin-left:auto}
 
 /* ============ Section furniture ============ */
 .sect{padding:var(--sect-y) 0}
@@ -230,7 +218,7 @@ ul,ol{list-style:none; padding:0}
   content:""; position:absolute; left:-14px; top:-14px; width:64%; height:64%;
   background:var(--sand); z-index:0;
 }
-.prof-fig img{width:100%; border-radius:2px; position:relative; z-index:1}
+.prof-fig img{width:100%; height:auto; border-radius:2px; position:relative; z-index:1}
 .prof-fig figcaption{margin-top:18px; border-top:2px solid var(--sand-2); padding-top:16px}
 .prof-fig strong{display:block; font-family:var(--f-disp); font-size:22px; font-weight:600; letter-spacing:.08em; color:var(--navy)}
 .prof-fig small{display:block; margin-top:6px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
@@ -352,7 +340,7 @@ ul,ol{list-style:none; padding:0}
 @media (max-width:1000px){
   .nav{display:none}
   .hero-grid{grid-template-columns:1fr}
-  .motif{max-width:280px}
+  .hero-fig{max-width:280px; margin-left:0}
   .pillars{grid-template-columns:1fr}
   .biz + .biz{margin-top:22px; padding-top:22px}
   .prof{grid-template-columns:1fr; max-width:600px}
@@ -377,8 +365,6 @@ ul,ol{list-style:none; padding:0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .motif .bar{animation:none; opacity:1; transform:none}
-  .motif .bar--go{width:100%}
   .js .rv{opacity:1; transform:none; transition:none}
   *{animation-duration:.01ms !important; transition-duration:.01ms !important}
 }
@@ -424,24 +410,25 @@ ul,ol{list-style:none; padding:0}
     <div>
       <p class="eyebrow">Fukuoka&nbsp;/&nbsp;Daimyo</p>
       <h1>整えてから、<br><em>攻める。</em></h1>
-      <p class="hero-sub">福岡の中小企業の、採用・コスト・仕組みを整えます。</p>
-      <p class="hero-note">経営コンサルティング　/　人材・採用　/　通信・決済</p>
+      <p class="hero-sub">福岡・大名で、経営・採用・通信の相談に乗る会社です。</p>
+      <p class="hero-note">ご相談は無料。まずは現状をお聞かせください。</p>
       <div class="hero-cta">
         <a class="btn btn--fill btn--lg" href="#contact">無料相談を申し込む</a>
         <a class="btn btn--line btn--lg" href="#services">事業内容を見る</a>
       </div>
     </div>
-    <div>
-      <div class="motif" aria-hidden="true">
-        <span class="bar" style="--w:58%;--dx:34px;--d:.15s"></span>
-        <span class="bar" style="--w:74%;--dx:-26px;--d:.28s"></span>
-        <span class="bar" style="--w:46%;--dx:52px;--d:.41s"></span>
-        <span class="bar" style="--w:66%;--dx:-40px;--d:.54s"></span>
-        <span class="bar" style="--w:52%;--dx:22px;--d:.67s"></span>
-        <span class="bar bar--go" style="--w:62%;--dx:-30px;--d:.8s"></span>
+    <figure class="prof-fig hero-fig">
+      <div class="shot">
+        <picture>
+          <source srcset="/assets/yasutake.webp" type="image/webp">
+          <img src="/assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" fetchpriority="high" decoding="async">
+        </picture>
       </div>
-      <p class="motif-cap">余白をつくり、一点に力を集める。</p>
-    </div>
+      <figcaption>
+        <strong>安武 伸浩</strong>
+        <small>Pigro株式会社 代表取締役</small>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
