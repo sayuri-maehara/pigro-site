@@ -175,18 +175,6 @@ ul,ol{list-style:none; padding:0}
 .sect-title{font-family:var(--f-disp); font-weight:600; font-size:clamp(26px,4.2vw,40px); line-height:1.45; letter-spacing:.03em; color:var(--navy)}
 .sect-lead{margin-top:18px; color:var(--ink-mid); font-size:15px; max-width:44em}
 
-/* ============ 悩み ============ */
-.worry-list{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line)}
-.worry-list li{
-  background:var(--surface); padding:30px clamp(20px,3vw,36px);
-  display:flex; gap:16px; align-items:flex-start; font-size:15.5px; line-height:1.8;
-}
-.worry-list svg{flex:none; width:16px; height:16px; margin-top:7px; color:var(--accent-lite)}
-.worry-foot{
-  margin-top:36px; padding:24px 30px; background:var(--sand);
-  font-family:var(--f-disp); font-size:clamp(16px,2.4vw,21px); letter-spacing:.03em; color:var(--navy); line-height:1.8;
-}
-
 /* ============ 事業内容 ============ */
 .pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,32px)}
 .pillar{background:var(--surface); border:1px solid var(--line); padding:clamp(26px,3vw,38px)}
@@ -352,7 +340,6 @@ ul,ol{list-style:none; padding:0}
   body{font-size:15.5px}
   .hd-tel{display:none}
   .logo b{font-size:20px}
-  .worry-list{grid-template-columns:1fr}
   .flow{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
   .checks{grid-template-columns:1fr}
@@ -432,30 +419,13 @@ ul,ol{list-style:none; padding:0}
   </div>
 </section>
 
-<!-- ===== 悩み ===== -->
-<section class="sect sect--white rv" id="worry">
-  <div class="wrap">
-    <div class="sect-head">
-      <span class="sect-label">Issues</span>
-      <h2 class="sect-title">こんなお悩み、ありませんか。</h2>
-    </div>
-    <ul class="worry-list">
-      <li><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect width="16" height="16" rx="8"/></svg><span>人件費や採用コストの負担を感じている</span></li>
-      <li><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect width="16" height="16" rx="8"/></svg><span>求人を出しても、応募が集まらない・定着しない</span></li>
-      <li><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect width="16" height="16" rx="8"/></svg><span>電気代や通信費が、今のままでいいのか分からない</span></li>
-      <li><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect width="16" height="16" rx="8"/></svg><span>経営課題はあるが、何から手をつければいいか分からない</span></li>
-    </ul>
-    <p class="worry-foot">まず現状を整理し、削れるもの・足すものを見極めるところから始めます。</p>
-  </div>
-</section>
-
 <!-- ===== 事業内容 ===== -->
-<section class="sect rv" id="services">
+<section class="sect sect--white rv" id="services">
   <div class="wrap">
     <div class="sect-head">
       <span class="sect-label">Services</span>
       <h2 class="sect-title">3つの柱で、経営の足もとを支えます。</h2>
-      <p class="sect-lead">コスト・人材・インフラ。それぞれ別々の会社に頼むと分断されがちな領域を、ひとつの窓口でまとめてご相談いただけます。</p>
+      <p class="sect-lead">人件費や採用、電気代や通信費。「何から手をつければいいか分からない」という段階からご相談ください。コスト・人材・インフラを、ひとつの窓口でまとめて整えます。</p>
     </div>
     <div class="pillars">
 
@@ -507,7 +477,7 @@ ul,ol{list-style:none; padding:0}
 </section>
 
 <!-- ===== 代表紹介 ===== -->
-<section class="sect sect--white rv" id="profile">
+<section class="sect rv" id="profile">
   <div class="wrap">
     <div class="sect-head">
       <span class="sect-label">Representative</span>
