@@ -203,6 +203,20 @@ ul,ol{list-style:none; padding:0}
 .biz-can li::before{content:""; position:absolute; left:0; top:.85em; width:8px; height:2px; background:var(--sand-2)}
 .biz-seeker{margin-top:22px; padding-top:18px; border-top:1px dashed var(--line-strong); font-size:13.5px; color:var(--ink-mid)}
 .biz-seeker a{color:var(--navy); font-weight:700; text-decoration:underline; text-underline-offset:3px}
+/* 本業（人材・採用）の段：共感→納得→行動 */
+.pillar-body--main{max-width:720px}
+.biz-hook{font-family:var(--f-disp); font-size:clamp(20px,2.4vw,26px); font-weight:600; line-height:1.6; letter-spacing:.03em; color:var(--navy); margin-bottom:16px}
+.biz-sub{font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--accent); margin:0 0 12px}
+.biz-pain{display:grid; gap:12px; margin-bottom:34px; padding:22px 26px; background:var(--sand)}
+.biz-pain li{position:relative; padding-left:20px; font-size:14.5px; line-height:1.8; color:var(--navy)}
+.biz-pain li::before{content:""; position:absolute; left:0; top:.8em; width:9px; height:9px; border:1.5px solid var(--accent); border-radius:50%}
+.biz-steps{counter-reset:step; display:flex; flex-wrap:wrap; gap:10px 0; align-items:center}
+.biz-steps li{counter-increment:step; display:flex; align-items:center; gap:8px; font-size:14px; color:var(--navy)}
+.biz-steps li::before{content:counter(step,decimal-leading-zero); font-family:var(--f-util); font-size:11px; letter-spacing:.1em; color:var(--accent)}
+.biz-steps li:not(:last-child)::after{content:"→"; margin:0 14px; color:var(--sand-2)}
+.biz-cta{margin-top:30px; padding-top:26px; border-top:1px solid var(--line-strong)}
+.biz-cta p{font-size:15px; line-height:1.9; color:var(--ink-mid); margin-bottom:16px}
+.biz-cta b{color:var(--navy)}
 .lic{
   display:inline-block; margin-bottom:10px; font-family:var(--f-util); font-size:11.5px; letter-spacing:.08em;
   background:var(--sand); color:#6E5326; padding:4px 11px; border-radius:2px;
@@ -464,23 +478,53 @@ ul,ol{list-style:none; padding:0}
 
       <div class="pillar">
         <div class="pillar-head"><h3>人材・採用</h3><span>02 People</span></div>
-        <div class="pillar-body">
+        <div class="pillar-body pillar-body--main">
+        <p class="biz-hook">「採用できない」は、御社の努力不足ではありません。</p>
+        <p class="biz-lead">働き手そのものが減り、求人を出しても応募が来ない状況は、福岡の中小企業にも広がっています。人が足りないまま現場が回らない。採用してもすぐ辞めて、費用だけが積み上がる——多くの経営者が、同じ壁に当たっています。</p>
+
+        <p class="biz-sub">こんな状況ではありませんか</p>
+        <ul class="biz-pain">
+          <li>求人を出して3週間、管理画面の応募数は「0」のまま。掲載費だけが毎月引かれていく</li>
+          <li>やっと採用した人が、3か月で退職。教えた時間と紹介料が、また振り出しに</li>
+          <li>人が足りず、社長自身が現場に入る日が週に何日もある。本来やるべき仕事が後回しに</li>
+          <li>外国人材を考えてはいるが、手続きも受け入れ後も想像がつかず、一歩目が踏み出せない</li>
+          <li>来月、ベテランが辞める。引き継ぎまでに、人を見つけなければならない</li>
+        </ul>
+
         <div class="biz">
           <span class="lic">厚生労働大臣許可 40-ユ-301648号</span>
           <h4>有料職業紹介業</h4>
-          <p class="biz-lead">自社で開拓した独自ルートに加え、複数の求人媒体・人材データサービスと提携。<b>約15万件の求職者データ</b>（2026年9月時点、提携サービス分を含む）から、御社に合う人材をご案内します。</p>
+          <p class="biz-sub">Pigro の人材紹介が違う点</p>
           <ul class="biz-can">
-            <li><b>幅広い職種に対応</b>　製造・物流・建設・飲食・介護から事務職まで。20〜30代を中心とした人材を、福岡の地場企業へご紹介</li>
-            <li><b>外国人材</b>　海外の送り出し機関との直接連携が強み。留学生から、国内で就業中の方まで</li>
-            <li><b>完全成功報酬</b>　採用が決まるまで、ご紹介料はいただきません。採用後の定着フォローまで対応</li>
+            <li><b>母集団の広さ</b>　自社で開拓した独自ルートに加え、複数の求人媒体・人材データサービスと提携。約15万件の求職者データ（2026年9月時点、提携サービス分を含む）から、御社に合う人材をご案内します</li>
+            <li><b>幅広い職種、20〜30代中心</b>　製造・物流・建設・飲食・介護から事務職まで。福岡の地場企業への紹介に強みがあります</li>
+            <li><b>外国人材は送り出し機関と直接連携</b>　留学生から国内で就業中の方まで。初めての受け入れも、手順から一緒に進めます</li>
+            <li><b>完全成功報酬</b>　採用が決まるまで、ご紹介料はいただきません。入社後の定着フォローまで対応します</li>
           </ul>
         </div>
+
+        <div class="biz">
+          <h4>ご依頼から入社まで</h4>
+          <ol class="biz-steps">
+            <li>ご依頼・ヒアリング</li>
+            <li>候補者のご提案</li>
+            <li>面接（日程調整・当日フォロー）</li>
+            <li>内定・入社</li>
+            <li>定着フォロー</li>
+          </ol>
+        </div>
+
         <div class="biz">
           <h4>求人広告代理店業</h4>
           <ul class="biz-can">
             <li>求人媒体の選定と掲載代行</li>
             <li>原稿づくりと、掲載後の改善提案</li>
           </ul>
+        </div>
+
+        <div class="biz-cta">
+          <p><b>まずは「こんな人が欲しい」だけで構いません。</b>求人票がなくても、条件が固まっていなくても、ご相談ください。</p>
+          <a class="btn btn--fill" href="#contact">無料相談を申し込む</a>
         </div>
         <p class="biz-seeker">お仕事をお探しの方へ：エントリーは LINE で簡単。面談は Web・来社どちらでも → <a href="https://lin.ee/iLw0kzs" target="_blank" rel="noopener">LINEで相談する</a></p>
         </div>
