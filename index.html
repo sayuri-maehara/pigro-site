@@ -218,6 +218,10 @@ ul,ol{list-style:none; padding:0}
 .prof-fig small{display:block; margin-top:6px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
 .prof-body p{font-size:15.5px; line-height:2.1; color:var(--ink-mid)}
 .prof-body p + p{margin-top:24px}
+.career{margin-bottom:28px; border-top:2px solid var(--sand-2)}
+.career div{display:grid; grid-template-columns:64px 1fr; gap:16px; padding:14px 0; border-bottom:1px solid var(--line); align-items:baseline}
+.career dt{font-size:12.5px; font-weight:700; letter-spacing:.12em; color:var(--accent)}
+.career dd{font-size:15px; line-height:1.9; color:var(--navy)}
 .pull{
   margin:34px 0; padding:26px 30px; background:var(--sand); border-left:3px solid var(--accent-lite);
   font-family:var(--f-disp); font-size:clamp(16px,2.2vw,19px); line-height:1.95; color:var(--navy); letter-spacing:.04em;
@@ -350,6 +354,7 @@ ul,ol{list-style:none; padding:0}
   .form-grid{grid-template-columns:1fr}
   .checks{grid-template-columns:1fr}
   .creed div{grid-template-columns:1fr; gap:6px; padding:14px 0}
+  .career div{grid-template-columns:1fr; gap:4px; padding:12px 0}
   .spec div{grid-template-columns:1fr; gap:4px; padding:13px 0}
   .mbar{display:grid}
   .hero-cta .btn{flex:1 1 100%}
@@ -513,13 +518,15 @@ ul,ol{list-style:none; padding:0}
         </figcaption>
       </figure>
       <div class="prof-body">
-        <p>流通・コンビニ業界での20年超の実務経験を経て、2023年11月にPigro株式会社を設立。「コスト削減診断士」「小売電気アドバイザー」の資格を活かし、"整えてから、攻める"を掲げて地域の経営者に伴走しています。</p>
-        <p>休日は釣りとキャンプで過ごします。余白をつくることで、本当に大切なことに集中できる——それが、Pigroという社名に込めた考え方でもあります。</p>
+        <dl class="career">
+          <div><dt>経歴</dt><dd>流通・コンビニ業界で20年超の実務経験。2023年11月、Pigro株式会社を設立</dd></div>
+          <div><dt>資格</dt><dd>コスト削減診断士／小売電気アドバイザー</dd></div>
+          <div><dt>休日</dt><dd>釣りとキャンプ</dd></div>
+        </dl>
+        <p>余白をつくることで、本当に大切なことに集中できる——それが、Pigroという社名に込めた考え方です。</p>
         <blockquote class="pull">「Pigro」はイタリア語で"ナマケモノ"。本当に成果を出す人は、必要なことにだけエネルギーを集中させ、ON・OFFを切り替えて余白をつくれる人です。それを体現するのが、アクティブなナマケモノ＝Pigro。</blockquote>
         <dl class="creed">
           <div><dt>Philosophy<em>理念</em></dt><dd>整えてから、攻める。</dd></div>
-          <div><dt>Mission<em>ミッション</em></dt><dd>課題の本質を見極め、最適な手段で整える。</dd></div>
-          <div><dt>Vision<em>ビジョン</em></dt><dd>安心して挑戦できる企業を、社会に増やす。</dd></div>
         </dl>
       </div>
     </div>
