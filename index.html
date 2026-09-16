@@ -20,8 +20,8 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,8 +118,7 @@ ul,ol{list-style:none; padding:0}
 }
 .hd{display:flex; align-items:center; gap:24px; height:var(--hd-h)}
 .logo{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto}
-.logo svg{width:20px; height:20px; flex:none}
-.logo b{font-family:var(--f-util); font-weight:500; font-size:22px; letter-spacing:.1em; line-height:1; color:var(--navy)}
+.logo img{height:56px; width:auto; mix-blend-mode:multiply}
 .nav{display:flex; gap:26px}
 .nav a{font-size:13.5px; text-decoration:none; color:var(--ink-mid); letter-spacing:.06em; transition:color .2s}
 .nav a:hover{color:var(--accent)}
@@ -205,7 +204,13 @@ ul,ol{list-style:none; padding:0}
 .midcta .btn--fill:hover{background:#fff}
 
 /* ============ 代表紹介 ============ */
-.prof{display:grid; grid-template-columns:340px 1fr; gap:clamp(32px,6vw,72px); align-items:start}
+.prof{max-width:820px}
+.prof-name{margin-bottom:26px}
+.prof-name strong{display:block; font-family:var(--f-disp); font-size:26px; font-weight:600; letter-spacing:.08em; color:var(--navy)}
+.prof-name small{display:block; margin-top:6px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
+.origin{display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:center; margin:34px 0}
+.origin-logo{width:120px; height:auto; mix-blend-mode:multiply}
+.origin .pull{margin:0}
 .prof-fig{margin:0}
 .prof-fig .shot{position:relative}
 .prof-fig .shot::before{
@@ -336,7 +341,6 @@ ul,ol{list-style:none; padding:0}
   .hero-fig{max-width:280px; margin-left:0}
   .pillars{grid-template-columns:1fr}
   .biz + .biz{margin-top:22px; padding-top:22px}
-  .prof{grid-template-columns:1fr; max-width:600px}
   .prof-fig{max-width:320px}
   .flow{grid-template-columns:repeat(2,1fr)}
 }
@@ -349,6 +353,8 @@ ul,ol{list-style:none; padding:0}
   .contact-main{grid-template-columns:1fr}
   .creed div{grid-template-columns:1fr; gap:6px; padding:14px 0}
   .career div{grid-template-columns:1fr; gap:4px; padding:12px 0}
+  .origin{grid-template-columns:1fr; gap:16px}
+  .origin-logo{width:96px}
   .spec div{grid-template-columns:1fr; gap:4px; padding:13px 0}
   .mbar{display:grid}
   .hero-cta .btn{flex:1 1 100%}
@@ -368,12 +374,7 @@ ul,ol{list-style:none; padding:0}
 <header class="site-header">
   <div class="wrap hd">
     <a class="logo" href="#top" aria-label="Pigro株式会社 トップへ">
-      <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <rect y="2" width="13" height="2.6" rx="1" fill="#DED2B9"/>
-        <rect y="8.7" width="16" height="2.6" rx="1" fill="#DED2B9"/>
-        <rect y="15.4" width="20" height="2.6" rx="1" fill="#14213D"/>
-      </svg>
-      <b>Pigro</b>
+      <img src="assets/logo.jpg" alt="Pigro" width="132" height="133" decoding="async">
     </a>
     <nav class="nav" aria-label="メインメニュー">
       <a href="#services">事業内容</a>
@@ -411,8 +412,8 @@ ul,ol{list-style:none; padding:0}
     <figure class="prof-fig hero-fig">
       <div class="shot">
         <picture>
-          <source srcset="/assets/yasutake.webp" type="image/webp">
-          <img src="/assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" fetchpriority="high" decoding="async">
+          <source srcset="assets/yasutake.webp" type="image/webp">
+          <img src="assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" fetchpriority="high" decoding="async">
         </picture>
       </div>
       <figcaption>
@@ -498,26 +499,18 @@ ul,ol{list-style:none; padding:0}
       <h2 class="sect-title">「整えてから、攻める」を、<br>いちばん近くで。</h2>
     </div>
     <div class="prof">
-      <figure class="prof-fig">
-        <div class="shot">
-          <picture>
-            <source srcset="/assets/yasutake.webp" type="image/webp">
-            <img src="/assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <figcaption>
-          <strong>安武 伸浩</strong>
-          <small>Pigro株式会社 代表取締役／Nobuhiro Yasutake</small>
-        </figcaption>
-      </figure>
       <div class="prof-body">
+        <p class="prof-name"><strong>安武 伸浩</strong><small>Pigro株式会社 代表取締役／Nobuhiro Yasutake</small></p>
         <dl class="career">
-          <div><dt>経歴</dt><dd>流通・コンビニ業界で20年超の実務経験。2023年11月、Pigro株式会社を設立</dd></div>
+          <div><dt>経歴</dt><dd>流通・コンビニ業界で20年超の実務経験。税理士試験に合格した税務・会計の知識を土台に、2023年11月、Pigro株式会社を設立</dd></div>
           <div><dt>資格</dt><dd>コスト削減診断士／小売電気アドバイザー</dd></div>
           <div><dt>休日</dt><dd>釣りとキャンプ</dd></div>
         </dl>
         <p>余白をつくることで、本当に大切なことに集中できる——それが、Pigroという社名に込めた考え方です。</p>
-        <blockquote class="pull">「Pigro」はイタリア語で"ナマケモノ"。本当に成果を出す人は、必要なことにだけエネルギーを集中させ、ON・OFFを切り替えて余白をつくれる人です。それを体現するのが、アクティブなナマケモノ＝Pigro。</blockquote>
+        <div class="origin">
+          <img class="origin-logo" src="assets/logo.jpg" alt="Pigroのロゴ。枝にぶら下がるナマケモノ" width="132" height="133" loading="lazy" decoding="async">
+          <blockquote class="pull">「Pigro」はイタリア語で"ナマケモノ"。本当に成果を出す人は、必要なことにだけエネルギーを集中させ、ON・OFFを切り替えて余白をつくれる人です。それを体現するのが、アクティブなナマケモノ＝Pigro。</blockquote>
+        </div>
         <dl class="creed">
           <div><dt>Philosophy<em>理念</em></dt><dd>整えてから、攻める。</dd></div>
         </dl>
