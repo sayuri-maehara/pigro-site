@@ -243,17 +243,12 @@ ul,ol{list-style:none; padding:0}
 .flow p{font-size:13.5px; color:var(--ink-soft); line-height:1.85}
 
 /* ============ 会社概要 ============ */
-.about{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,64px); align-items:start}
+.about{max-width:820px}
 .spec div{display:grid; grid-template-columns:118px 1fr; gap:16px; padding:15px 0; border-bottom:1px solid var(--line)}
 .spec div:first-child{border-top:1px solid var(--line)}
 .spec dt{font-size:13px; color:var(--ink-soft); letter-spacing:.08em}
 .spec dd{font-size:14.5px; line-height:1.85}
 .spec a{color:var(--accent)}
-.area{background:var(--sand); padding:clamp(24px,3vw,34px)}
-.area h3{font-family:var(--f-disp); font-size:18px; font-weight:600; letter-spacing:.05em; margin-bottom:16px; color:var(--navy)}
-.area p{font-size:14.5px; color:var(--ink-mid); line-height:1.95}
-.area ul{margin-top:20px; display:flex; flex-wrap:wrap; gap:8px}
-.area li{font-size:12.5px; letter-spacing:.06em; background:var(--surface); border:1px solid var(--line-strong); padding:6px 13px; border-radius:2px}
 .map{margin-top:clamp(36px,5vw,56px)}
 .map h3{font-family:var(--f-disp); font-size:18px; font-weight:600; letter-spacing:.05em; margin-bottom:8px; color:var(--navy)}
 .map p{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px}
@@ -344,7 +339,6 @@ ul,ol{list-style:none; padding:0}
   .prof{grid-template-columns:1fr; max-width:600px}
   .prof-fig{max-width:320px}
   .flow{grid-template-columns:repeat(2,1fr)}
-  .about{grid-template-columns:1fr}
 }
 @media (max-width:720px){
   body{font-size:15.5px}
@@ -577,14 +571,8 @@ ul,ol{list-style:none; padding:0}
         <div><dt>メール</dt><dd><a href="mailto:pigro@pigro-fukuoka.com">pigro@pigro-fukuoka.com</a></dd></div>
         <div><dt>事業内容</dt><dd>経営コンサルティング事業／有料職業紹介業／求人広告代理店業／電気通信媒介業</dd></div>
         <div><dt>許認可</dt><dd>有料職業紹介事業　厚生労働大臣許可 40-ユ-301648号<br>電気通信媒介業　届出番号 J2500301</dd></div>
+        <div><dt>対応範囲</dt><dd>訪問でのご相談：福岡県内および九州・山口エリア<br>オンラインでのご相談：全国（人材紹介のご登録も全国から受け付けています）</dd></div>
       </dl>
-      <div class="area">
-        <h3>対応エリア</h3>
-        <p>福岡市を中心に、福岡県全域および九州エリアのご相談を承っています。オンラインでの打ち合わせにも対応しておりますので、遠方の企業様もお気軽にご相談ください。</p>
-        <ul>
-          <li>福岡市</li><li>糟屋郡</li><li>筑紫地区</li><li>北九州市</li><li>飯塚・筑豊</li><li>久留米・筑後</li><li>福岡県全域</li><li>九州各県</li>
-        </ul>
-      </div>
     </div>
 
     <div class="map">
