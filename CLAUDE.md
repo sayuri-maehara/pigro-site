@@ -170,6 +170,14 @@ assets/         画像一式
 **補足**：フォームの連絡先は「メールか電話」ではなく**メールアドレス固定**にした（自動返信と Reply-To に必須のため。電話派は上の電話ボタンを使う）。
 ヒーロー写真だけは `loading="lazy"` を付けず `fetchpriority="high"`（最初の画面の画像は遅延読み込みすると逆に遅くなる）。
 
+## 公開方針（2026-09-16 決定）
+
+- **Vercel 無料プラン（Hobby）で公開する**。GitHub は `sayuri-maehara/pigro-site`
+- 無料プランは規約上「個人・非営利向け」と承知のうえで使用。Vercel から有料化の連絡が来たら、
+  **Cloudflare Pages（0円・商用可）＋ Web3Forms（フォーム）に移行する**（README の方式B）。
+  移行時の作業：Cloudflare 連携／`index.html` の `ENDPOINT` を Web3Forms に変更／`api/` 削除／お名前.com の DNS 変更／プライバシーポリシーに外部サービス利用の一文追記
+- 月額費用は現状0円。既存のドメイン更新費（お名前.com、年1,500〜2,000円程度）のみ継続
+
 ## 未完了のタスク（改修前からの持ち越し）
 
 - [ ] Resend のドメイン認証（SPF/DKIM を お名前.com の DNS に登録）
