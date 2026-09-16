@@ -141,7 +141,7 @@ ul,ol{list-style:none; padding:0}
 
 /* ============ Hero ============ */
 .hero{padding:clamp(56px,9vw,104px) 0 clamp(64px,9vw,110px)}
-.hero-grid{display:grid; grid-template-columns:1fr 400px; gap:clamp(32px,6vw,72px); align-items:start}
+.hero-grid{display:grid; grid-template-columns:1fr 300px; gap:clamp(32px,6vw,72px); align-items:center}
 .eyebrow{
   font-family:var(--f-util); font-size:11.5px; font-weight:400; letter-spacing:.22em;
   color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:12px; margin-bottom:26px;
@@ -160,8 +160,20 @@ ul,ol{list-style:none; padding:0}
 .hero-note{font-size:13px; color:var(--ink-soft); margin-bottom:34px}
 .hero-cta{display:flex; flex-wrap:wrap; gap:14px}
 
-/* ヒーロー右側：代表写真（.prof-fig のスタイルを流用） */
-.hero-fig{max-width:400px; margin-left:auto}
+/* signature: 散らばった線が整い、一本だけ前へ出る */
+.motif{display:flex; flex-direction:column; gap:13px; padding:4px 0}
+.motif .bar{
+  height:9px; border-radius:1px; background:var(--sand-2);
+  width:var(--w); transform:translateX(var(--dx)); opacity:0;
+  animation:settle .95s cubic-bezier(.16,.84,.28,1) forwards; animation-delay:var(--d);
+}
+.motif .bar--go{
+  background:var(--navy);
+  animation:settle .95s cubic-bezier(.16,.84,.28,1) forwards, advance .8s cubic-bezier(.16,.84,.28,1) 1.55s forwards;
+}
+@keyframes settle{to{transform:translateX(0); opacity:1}}
+@keyframes advance{to{width:100%}}
+.motif-cap{margin-top:22px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
 
 /* ============ Section furniture ============ */
 .sect{padding:var(--sect-y) 0}
@@ -182,8 +194,8 @@ ul,ol{list-style:none; padding:0}
 .pillar-head span{font-family:var(--f-util); font-size:10.5px; letter-spacing:.16em; color:var(--ink-soft); text-transform:uppercase; margin-left:auto}
 .biz + .biz{margin-top:26px; padding-top:26px; border-top:1px dashed var(--line-strong)}
 .biz h4{font-size:16px; font-weight:700; letter-spacing:.04em; margin-bottom:10px; color:var(--navy)}
-.biz-for{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin-bottom:14px}
-.biz-for b{font-weight:700; color:var(--accent); margin-right:.4em}
+.biz-lead{font-size:14px; line-height:1.9; color:var(--ink-mid); margin-bottom:16px}
+.biz-can li b{display:block; font-weight:700; color:var(--navy); letter-spacing:.03em}
 .biz-can{list-style:none; display:grid; gap:10px}
 .biz-can li{position:relative; padding-left:18px; font-size:14.5px; line-height:1.8; color:var(--ink-mid)}
 .biz-can li::before{content:""; position:absolute; left:0; top:.85em; width:8px; height:2px; background:var(--sand-2)}
@@ -204,10 +216,7 @@ ul,ol{list-style:none; padding:0}
 .midcta .btn--fill:hover{background:#fff}
 
 /* ============ 代表紹介 ============ */
-.prof{max-width:820px}
-.prof-name{margin-bottom:26px}
-.prof-name strong{display:block; font-family:var(--f-disp); font-size:26px; font-weight:600; letter-spacing:.08em; color:var(--navy)}
-.prof-name small{display:block; margin-top:6px; font-size:12.5px; color:var(--ink-soft); letter-spacing:.06em}
+.prof{display:grid; grid-template-columns:260px 1fr; gap:clamp(32px,6vw,72px); align-items:start}
 .origin{display:grid; grid-template-columns:120px 1fr; gap:28px; align-items:center; margin:34px 0}
 .origin-logo{width:120px; height:auto; mix-blend-mode:multiply}
 .origin .pull{margin:0}
@@ -338,7 +347,8 @@ ul,ol{list-style:none; padding:0}
 @media (max-width:1000px){
   .nav{display:none}
   .hero-grid{grid-template-columns:1fr}
-  .hero-fig{max-width:280px; margin-left:0}
+  .motif{max-width:280px}
+  .prof{grid-template-columns:1fr; max-width:600px}
   .pillars{grid-template-columns:1fr}
   .biz + .biz{margin-top:22px; padding-top:22px}
   .prof-fig{max-width:320px}
@@ -362,6 +372,8 @@ ul,ol{list-style:none; padding:0}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .motif .bar{animation:none; opacity:1; transform:none}
+  .motif .bar--go{width:100%}
   .js .rv{opacity:1; transform:none; transition:none}
   *{animation-duration:.01ms !important; transition-duration:.01ms !important}
 }
@@ -409,18 +421,17 @@ ul,ol{list-style:none; padding:0}
         <a class="btn btn--line btn--lg" href="#services">事業内容を見る</a>
       </div>
     </div>
-    <figure class="prof-fig hero-fig">
-      <div class="shot">
-        <picture>
-          <source srcset="assets/yasutake.webp" type="image/webp">
-          <img src="assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" fetchpriority="high" decoding="async">
-        </picture>
+    <div>
+      <div class="motif" aria-hidden="true">
+        <span class="bar" style="--w:58%;--dx:34px;--d:.15s"></span>
+        <span class="bar" style="--w:74%;--dx:-26px;--d:.28s"></span>
+        <span class="bar" style="--w:46%;--dx:52px;--d:.41s"></span>
+        <span class="bar" style="--w:66%;--dx:-40px;--d:.54s"></span>
+        <span class="bar" style="--w:52%;--dx:22px;--d:.67s"></span>
+        <span class="bar bar--go" style="--w:62%;--dx:-30px;--d:.8s"></span>
       </div>
-      <figcaption>
-        <strong>安武 伸浩</strong>
-        <small>Pigro株式会社 代表取締役</small>
-      </figcaption>
-    </figure>
+      <p class="motif-cap">余白をつくり、一点に力を集める。</p>
+    </div>
   </div>
 </section>
 
@@ -438,11 +449,11 @@ ul,ol{list-style:none; padding:0}
         <div class="pillar-head"><h3>経営・コスト</h3><span>01 Cost</span></div>
         <div class="biz">
           <h4>経営コンサルティング事業</h4>
-          <p class="biz-for"><b>こんな方に</b>固定費が高い気がするが、どこを削れるか分からない</p>
+          <p class="biz-lead">マクロ環境の変化を踏まえ、ビジネスモデル・コストストラクチャー・オペレーションを横断的にアセスメント。プロフィタビリティとサステナビリティの両面からイシューを特定し、プライオリティに基づくロードマップを策定します。</p>
           <ul class="biz-can">
-            <li>コスト削減診断（固定費を項目ごとに見える化し、改善案をご提示）</li>
-            <li>新電力への切り替え提案（複数の電力会社を比較し、御社に合う先を選定）</li>
-            <li>経営課題の整理と、手をつける順番の優先づけ</li>
+            <li><b>ビジネス・アセスメント</b>　事業構造・コスト構造・組織運営のクロスファンクショナルな診断</li>
+            <li><b>ストラテジー＆エグゼキューション</b>　戦略立案から実行計画、KPI モニタリングまでワンストップで伴走</li>
+            <li><b>コスト・オプティマイゼーション</b>　エネルギー調達を含む固定費のベストミックスをご提案</li>
           </ul>
         </div>
       </div>
@@ -497,8 +508,19 @@ ul,ol{list-style:none; padding:0}
       <h2 class="sect-title">「整えてから、攻める」を、<br>いちばん近くで。</h2>
     </div>
     <div class="prof">
+      <figure class="prof-fig">
+        <div class="shot">
+          <picture>
+            <source srcset="assets/yasutake.webp" type="image/webp">
+            <img src="assets/yasutake.jpg" width="900" height="1248" alt="Pigro株式会社 代表取締役 安武伸浩" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <figcaption>
+          <strong>安武 伸浩</strong>
+          <small>Pigro株式会社 代表取締役／Nobuhiro Yasutake</small>
+        </figcaption>
+      </figure>
       <div class="prof-body">
-        <p class="prof-name"><strong>安武 伸浩</strong><small>Pigro株式会社 代表取締役／Nobuhiro Yasutake</small></p>
         <dl class="career">
           <div><dt>経歴</dt><dd>流通・コンビニ業界で20年超の実務経験。2023年11月、Pigro株式会社を設立</dd></div>
           <div><dt>資格</dt><dd>コスト削減診断士／小売電気アドバイザー</dd></div>
