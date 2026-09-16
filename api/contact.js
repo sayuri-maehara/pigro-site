@@ -40,11 +40,8 @@ export default async function handler(req, res) {
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
     const name = (body.name || '').trim();
-    const company = (body.company || '').trim();
     const email = (body.email || '').trim();
-    const tel = (body.tel || '').trim();
     const message = (body.message || '').trim();
-    const service = Array.isArray(body.service) ? body.service : [];
 
     // ハニーポット：自動投稿はここに値が入る。成功を装って静かに破棄する
     if ((body.website || '').trim() !== '') {
@@ -58,7 +55,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: '入力内容が長すぎます。' });
     }
 
-    const services = service.length ? service.join('、') : '（選択なし）';
     const received = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
 
     // 1. 社内への通知メール
@@ -66,16 +62,13 @@ export default async function handler(req, res) {
       from: FROM,
       to: [TO],
       reply_to: email,
-      subject: `【HP】お問い合わせ：${name} 様${company ? '（' + company + '）' : ''}`,
+      subject: `【HP】お問い合わせ：${name} 様`,
       html: `
         <div style="font-family:sans-serif;line-height:1.9;font-size:14px;color:#14191b">
           <p>コーポレートサイトのフォームからお問い合わせがありました。</p>
           <table style="border-collapse:collapse;margin-top:12px">
             <tr><td style="padding:6px 16px 6px 0;color:#6b7571">お名前</td><td>${esc(name)}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6b7571">会社名</td><td>${esc(company) || '—'}</td></tr>
             <tr><td style="padding:6px 16px 6px 0;color:#6b7571">メール</td><td><a href="mailto:${esc(email)}">${esc(email)}</a></td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6b7571">電話</td><td>${esc(tel) || '—'}</td></tr>
-            <tr><td style="padding:6px 16px 6px 0;color:#6b7571">興味のあるサービス</td><td>${esc(services)}</td></tr>
             <tr><td style="padding:6px 16px 6px 0;color:#6b7571">受信日時</td><td>${esc(received)}</td></tr>
           </table>
           <p style="margin-top:18px;color:#6b7571">お問い合わせ内容</p>
