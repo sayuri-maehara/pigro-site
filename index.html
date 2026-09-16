@@ -183,7 +183,13 @@ ul,ol{list-style:none; padding:0}
 .pillar-head span{font-family:var(--f-util); font-size:10.5px; letter-spacing:.16em; color:var(--ink-soft); text-transform:uppercase; margin-left:auto}
 .biz + .biz{margin-top:26px; padding-top:26px; border-top:1px dashed var(--line-strong)}
 .biz h4{font-size:16px; font-weight:700; letter-spacing:.04em; margin-bottom:10px; color:var(--navy)}
-.biz p{font-size:14.5px; line-height:1.9; color:var(--ink-mid)}
+.biz-for{font-size:13.5px; line-height:1.8; color:var(--ink-soft); margin-bottom:14px}
+.biz-for b{font-weight:700; color:var(--accent); margin-right:.4em}
+.biz-can{list-style:none; display:grid; gap:10px}
+.biz-can li{position:relative; padding-left:18px; font-size:14.5px; line-height:1.8; color:var(--ink-mid)}
+.biz-can li::before{content:""; position:absolute; left:0; top:.85em; width:8px; height:2px; background:var(--sand-2)}
+.biz-seeker{margin-top:22px; padding-top:18px; border-top:1px dashed var(--line-strong); font-size:13.5px; color:var(--ink-mid)}
+.biz-seeker a{color:var(--navy); font-weight:700; text-decoration:underline; text-underline-offset:3px}
 .lic{
   display:inline-block; margin-bottom:10px; font-family:var(--f-util); font-size:11.5px; letter-spacing:.08em;
   background:var(--sand); color:#6E5326; padding:4px 11px; border-radius:2px;
@@ -433,7 +439,12 @@ ul,ol{list-style:none; padding:0}
         <div class="pillar-head"><h3>経営・コスト</h3><span>01 Cost</span></div>
         <div class="biz">
           <h4>経営コンサルティング事業</h4>
-          <p>コスト削減診断・改善提案を中心に、企業の経営課題を可視化し解決策をご提案します。中でも固定費の見直しの一つとして、新電力への切り替えもご提案しています。複数の電力会社を比較検討し、クライアント企業様の状況に合った電力会社をご提案します。</p>
+          <p class="biz-for"><b>こんな方に</b>固定費が高い気がするが、どこを削れるか分からない</p>
+          <ul class="biz-can">
+            <li>コスト削減診断（固定費を項目ごとに見える化し、改善案をご提示）</li>
+            <li>新電力への切り替え提案（複数の電力会社を比較し、御社に合う先を選定）</li>
+            <li>経営課題の整理と、手をつける順番の優先づけ</li>
+          </ul>
         </div>
       </div>
 
@@ -442,12 +453,21 @@ ul,ol{list-style:none; padding:0}
         <div class="biz">
           <span class="lic">厚生労働大臣許可 40-ユ-301648号</span>
           <h4>有料職業紹介業</h4>
-          <p>即戦力人材の紹介を成功報酬型で支援します。日本人の中途採用支援に加え、海外の送り出し機関とも連携し、国内の専門学校で学ぶ優秀な留学生を「技人国（技術・人文知識・国際業務）」ビザで働ける人材としてご紹介することも可能です。採用後の定着フォローまで一貫してサポートします。</p>
+          <p class="biz-for"><b>こんな方に</b>求人を出しても応募が来ない、採用しても定着しない</p>
+          <ul class="biz-can">
+            <li>即戦力人材のご紹介（採用が決まるまで、ご紹介料はいただきません）</li>
+            <li>外国人材のご紹介（海外の送り出し機関と連携。留学生から、国内ですでに働いている方まで）</li>
+            <li>採用後の定着フォロー</li>
+          </ul>
         </div>
         <div class="biz">
           <h4>求人広告代理店業</h4>
-          <p>各種求人メディアの取扱い、求人広告の企画・運用代行、採用成功に向けた改善提案を行います。媒体選びから原稿づくり、掲載後の改善までを一緒に進めます。</p>
+          <ul class="biz-can">
+            <li>求人媒体の選定と掲載代行</li>
+            <li>原稿づくりと、掲載後の改善提案</li>
+          </ul>
         </div>
+        <p class="biz-seeker">お仕事をお探しの方は <a href="https://lin.ee/iLw0kzs" target="_blank" rel="noopener">LINEで相談する</a></p>
       </div>
 
       <div class="pillar">
@@ -455,7 +475,12 @@ ul,ol{list-style:none; padding:0}
         <div class="biz">
           <span class="lic">届出番号 J2500301</span>
           <h4>電気通信媒介業</h4>
-          <p>法人向けインターネット回線や各種通信サービスをご提案します。あわせて、店舗運営に関するお困りごとに応じて、決済端末の導入支援も行っています。</p>
+          <p class="biz-for"><b>こんな方に</b>通信費を見直したい、店舗に決済端末を入れたい</p>
+          <ul class="biz-can">
+            <li>法人向けインターネット回線のご提案・切り替え</li>
+            <li>各種通信サービスの見直し</li>
+            <li>決済端末の導入支援（店舗向け）</li>
+          </ul>
         </div>
       </div>
 
