@@ -172,7 +172,7 @@ assets/         画像一式
 
 ## 公開方針（2026-09-16 決定）
 
-- **Vercel 無料プラン（Hobby）で公開する**。GitHub は `sayuri-maehara/pigro-site`
+- **Vercel 無料プラン（Hobby）で公開する**。GitHub は `sayuri-maehara/pigro-site`。公開URL: https://pigro-site.vercel.app/ （2026-09-16 初回デプロイ。独自ドメイン接続は未）
 - 無料プランは規約上「個人・非営利向け」と承知のうえで使用。Vercel から有料化の連絡が来たら、
   **Cloudflare Pages（0円・商用可）＋ Web3Forms（フォーム）に移行する**（README の方式B）。
   移行時の作業：Cloudflare 連携／`index.html` の `ENDPOINT` を Web3Forms に変更／`api/` 削除／お名前.com の DNS 変更／プライバシーポリシーに外部サービス利用の一文追記
