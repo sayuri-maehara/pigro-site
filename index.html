@@ -187,11 +187,12 @@ ul,ol{list-style:none; padding:0}
 .sect-lead{margin-top:18px; color:var(--ink-mid); font-size:15px; max-width:44em}
 
 /* ============ 事業内容 ============ */
-.pillars{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,32px); align-items:start}
-.pillar{background:var(--surface); border:1px solid var(--line); padding:clamp(26px,3vw,38px)}
-.pillar-head{display:flex; align-items:baseline; gap:12px; padding-bottom:18px; margin-bottom:26px; border-bottom:2px solid var(--sand-2)}
-.pillar-head h3{font-family:var(--f-disp); font-size:20px; font-weight:600; letter-spacing:.05em; color:var(--navy)}
-.pillar-head span{font-family:var(--f-util); font-size:10.5px; letter-spacing:.16em; color:var(--ink-soft); text-transform:uppercase; margin-left:auto}
+/* 横長の段を縦に積む（左：柱名／右：内容）。量の違う3事業を対等に見せる */
+.pillars{border-top:1px solid var(--line-strong)}
+.pillar{display:grid; grid-template-columns:220px 1fr; gap:clamp(24px,4vw,64px); padding:clamp(34px,4.5vw,56px) 0; border-bottom:1px solid var(--line-strong); align-items:start}
+.pillar-head h3{font-family:var(--f-disp); font-size:clamp(22px,2.4vw,28px); font-weight:600; letter-spacing:.05em; color:var(--navy); line-height:1.4}
+.pillar-head span{display:block; margin-top:10px; font-family:var(--f-util); font-size:11px; letter-spacing:.2em; color:var(--accent); text-transform:uppercase}
+.pillar-body{max-width:640px}
 .biz + .biz{margin-top:26px; padding-top:26px; border-top:1px dashed var(--line-strong)}
 .biz h4{font-size:16px; font-weight:700; letter-spacing:.04em; margin-bottom:10px; color:var(--navy)}
 .biz-lead{font-size:14px; line-height:1.9; color:var(--ink-mid); margin-bottom:16px}
@@ -350,7 +351,7 @@ ul,ol{list-style:none; padding:0}
   .hero-grid{grid-template-columns:1fr}
   .motif{max-width:280px}
   .prof{grid-template-columns:1fr; max-width:600px}
-  .pillars{grid-template-columns:1fr}
+  .pillar{grid-template-columns:1fr; gap:18px}
   .biz + .biz{margin-top:22px; padding-top:22px}
   .prof-fig{max-width:320px}
   .flow{grid-template-columns:repeat(2,1fr)}
@@ -448,6 +449,7 @@ ul,ol{list-style:none; padding:0}
 
       <div class="pillar">
         <div class="pillar-head"><h3>経営・コスト</h3><span>01 Cost</span></div>
+        <div class="pillar-body">
         <div class="biz">
           <h4>経営コンサルティング事業</h4>
           <p class="biz-lead">外部環境の変化を踏まえ、事業構造・コスト構造・組織運営を横断的に診断し、収益性と持続性の両面から課題を整理します。優先順位を明確にしたロードマップを策定し、実行段階まで伴走します。</p>
@@ -457,10 +459,12 @@ ul,ol{list-style:none; padding:0}
             <li><b>固定費の最適化</b>　エネルギー調達を含む固定費の構成を見直し、最適な組み合わせをご提案</li>
           </ul>
         </div>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-head"><h3>人材・採用</h3><span>02 People</span></div>
+        <div class="pillar-body">
         <div class="biz">
           <span class="lic">厚生労働大臣許可 40-ユ-301648号</span>
           <h4>有料職業紹介業</h4>
@@ -479,10 +483,12 @@ ul,ol{list-style:none; padding:0}
           </ul>
         </div>
         <p class="biz-seeker">お仕事をお探しの方へ：エントリーは LINE で簡単。面談は Web・来社どちらでも → <a href="https://lin.ee/iLw0kzs" target="_blank" rel="noopener">LINEで相談する</a></p>
+        </div>
       </div>
 
       <div class="pillar">
         <div class="pillar-head"><h3>通信・決済</h3><span>03 Infra</span></div>
+        <div class="pillar-body">
         <div class="biz">
           <span class="lic">届出番号 J2500301</span>
           <h4>電気通信媒介業</h4>
@@ -491,6 +497,7 @@ ul,ol{list-style:none; padding:0}
             <li>各種通信サービスの見直し</li>
             <li>決済端末の導入支援（店舗向け）</li>
           </ul>
+        </div>
         </div>
       </div>
 
