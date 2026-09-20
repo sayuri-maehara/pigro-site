@@ -300,6 +300,11 @@ ul,ol{list-style:none; padding:0}
 }
 .f textarea{min-height:150px; resize:vertical; line-height:1.85}
 .f input:focus,.f textarea:focus{outline:none; border-color:var(--navy); box-shadow:0 0 0 3px var(--sand)}
+.f input[aria-invalid="true"],.f textarea[aria-invalid="true"]{border-color:#B4402D}
+/* JS が無効だとフォームは送信できない（入力内容が URL に載って自ページに戻るだけ）ので、隠してメール案内だけ出す */
+.nojs-note{display:none; font-size:16px; line-height:1.8; margin-bottom:16px}
+.no-js #contactForm{display:none}
+.no-js .nojs-note{display:block}
 .agree{display:flex; align-items:flex-start; gap:12px; font-size:14px; line-height:1.8; margin-top:4px}
 .agree input{accent-color:var(--navy); width:17px; height:17px; margin-top:5px; flex:none}
 .agree a{color:var(--accent)}
@@ -695,35 +700,38 @@ ul,ol{list-style:none; padding:0}
 
     <div class="contact-form">
       <h3 class="contact-form-title">メールでのご相談はこちら</h3>
+      <p class="nojs-note">お使いのブラウザの設定ではフォームをご利用いただけません。下記のメールアドレスへ直接お送りください。</p>
       <form class="form-grid" id="contactForm" novalidate>
         <div class="msg msg--ok" id="msgOk" role="status" aria-live="polite"></div>
         <div class="msg msg--ng" id="msgNg" role="alert"></div>
 
         <div class="f">
           <label for="name">お名前 <span class="req">必須</span></label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
+          <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="err-name">
           <p class="err" id="err-name">お名前をご入力ください。</p>
         </div>
         <div class="f">
           <label for="email">メールアドレス（返信用） <span class="req">必須</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
+          <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="err-email">
           <p class="err" id="err-email">メールアドレスの形式をご確認ください。</p>
         </div>
 
         <div class="f f--full">
           <label for="message">お問い合わせ内容 <span class="req">必須</span></label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" required aria-describedby="err-message"></textarea>
           <p class="err" id="err-message">お問い合わせ内容をご入力ください。</p>
         </div>
 
+        <!-- 自動投稿対策。fax_confirm は人には見えない罠（ブラウザの自動入力に拾われない名前にしてある）。ts はフォーム表示時刻 -->
         <div class="hp" aria-hidden="true">
-          <label for="website">Webサイト（入力しないでください）</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          <label for="fax_confirm">この欄には入力しないでください</label>
+          <input type="text" id="fax_confirm" name="fax_confirm" tabindex="-1" autocomplete="off">
         </div>
+        <input type="hidden" id="ts" name="ts" value="">
 
         <div class="f f--full">
           <label class="agree" for="agree">
-            <input type="checkbox" id="agree" name="agree" required>
+            <input type="checkbox" id="agree" name="agree" required aria-describedby="err-agree">
             <span><a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信します。<span class="req">必須</span></span>
           </label>
           <p class="err" id="err-agree">プライバシーポリシーへの同意が必要です。</p>
@@ -814,6 +822,16 @@ ul,ol{list-style:none; padding:0}
     if(input) input.setAttribute('aria-invalid', on ? 'true' : 'false');
   }
 
+  // 入力し直したらエラー表示を消す
+  ['name','email','message','agree'].forEach(function(id){
+    var input = document.getElementById(id);
+    if(input) input.addEventListener('input', function(){ showErr(id, false); });
+  });
+
+  // フォームを表示した時刻（サーバー側で「速すぎる送信＝自動投稿」の判定に使う）
+  function stamp(){ el['ts'].value = String(Date.now()); }
+  stamp();
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
     ok.classList.remove('is-on');
@@ -823,7 +841,8 @@ ul,ol{list-style:none; padding:0}
       name: el['name'].value.trim(),
       email: el['email'].value.trim(),
       message: el['message'].value.trim(),
-      website: el['website'].value.trim()
+      fax_confirm: el['fax_confirm'].value.trim(),
+      ts: el['ts'].value
     };
 
     var bad = false, first = null;
@@ -842,15 +861,21 @@ ul,ol{list-style:none; padding:0}
     btn.disabled = true;
     btn.textContent = '送信中…';
 
+    // 回線が詰まったとき「送信中…」のまま固まらないよう 15 秒で打ち切る
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 15000) : null;
+
     fetch(ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      signal: ctrl ? ctrl.signal : undefined
     })
     .then(function(res){ if(!res.ok) throw new Error(res.status); return res.json(); })
     .then(function(){
       form.reset();
-      ok.textContent = 'お問い合わせを受け付けました。確認のメールをお送りしています。通常2営業日以内にご返信いたしますので、少々お待ちください。';
+      stamp();
+      ok.textContent = 'お問い合わせを受け付けました。通常2営業日以内にご返信いたしますので、少々お待ちください。';
       ok.classList.add('is-on');
       ok.scrollIntoView({ block:'center', behavior:'smooth' });
     })
@@ -860,6 +885,7 @@ ul,ol{list-style:none; padding:0}
       ng.scrollIntoView({ block:'center', behavior:'smooth' });
     })
     .then(function(){
+      if(timer) clearTimeout(timer);
       btn.disabled = false;
       btn.textContent = '送信する';
     });
