@@ -86,7 +86,7 @@ body: JSON.stringify(Object.assign({ access_key: 'ここにAccess Key' }, data))
 - [ ] プライバシーポリシーの文面を社労士・弁護士等に確認
 - [ ] Google Search Console にサイトを登録
 - [ ] 地図に表示される場所が正しいか確認（現行サイトの埋め込みURLを流用しています）
-- [ ] 公式LINEのURL `https://lin.ee/iLw0kzs` が有効か確認
+- [ ] 公式LINEのURL `https://lin.ee/YpWrTZ3` が有効か確認
 - [ ] Instagram のリンクを残すか判断（投稿が営業に使える内容かどうかで決める）
 
 ## 配色
