@@ -196,8 +196,8 @@ assets/         画像一式
   - Resend アカウントは `pigro@pigro-fukuoka.com` で登録（チーム名「ピグロ福岡」、地域：東京）。API キー `pigro-site-form` は送信専用権限
   - **DNS は お名前.com Navi の「ドメインDNS」ではなく、レンタルサーバー（RSプラン）の「サーバーDNS」**（cp.onamae.ne.jp → ドメイン → DNS）で管理されている（ネームサーバーが ns-rs1/2.gmoserver.jp のため）。独自ドメイン接続のときもここを触る
   - 追加したレコード：TXT `resend._domainkey`／CNAME `rsend`・`send`／TXT `_dmarc`。既存の MX・SPF・`default._domainkey` は無変更
-- [ ] 地図の表示位置が正しいか確認（旧サイトの埋め込みURLを流用中）
-- [ ] 公式LINE URL `https://lin.ee/iLw0kzs` の有効性確認
+- [x] 地図の表示位置が正しいか確認（2026-09-21 確認済み。埋め込みURLの場所情報＝大名2丁目4-38 チサンマンション天神3、ピンは赤坂駅東側で登記住所と一致）
+- [ ] 公式LINE URL `https://lin.ee/iLw0kzs` の有効性確認（2026-09-21 リンクは有効で LINE の友だち追加ページに転送される。アカウントID `@584wifep`。**それが自社アカウントかは代表の LINE 公式アカウント管理画面か、スマホで QR を読んで確認**）
 - [ ] 届出番号 J2500301 を届出受理通知の原本と照合
 - [x] 人材サービス総合サイトへの掲載有無を確認（2026-09-21 掲載確認済み。許可 令和7年9月1日、取扱職種：全職種、取扱地域：**国内**、手数料表・返戻金制度PDF登録済み。旧URL `www.jinzai.mhlw.go.jp` はドメイン消滅のため `jinzai.hellowork.mhlw.go.jp` に修正済み）
 - [ ] 写真の追加（撮影後。優先順位は README.md 参照）
