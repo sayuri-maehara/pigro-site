@@ -188,7 +188,10 @@ assets/         画像一式
 
 ## 未完了のタスク（改修前からの持ち越し）
 
-- [ ] Resend のドメイン認証（SPF/DKIM を お名前.com の DNS に登録）
+- [x] Resend のドメイン認証（2026-09-21 完了。本番でフォーム→社内通知＋自動返信の2通が受信トレイに届くことを確認済み）
+  - Resend アカウントは `pigro@pigro-fukuoka.com` で登録（チーム名「ピグロ福岡」、地域：東京）。API キー `pigro-site-form` は送信専用権限
+  - **DNS は お名前.com Navi の「ドメインDNS」ではなく、レンタルサーバー（RSプラン）の「サーバーDNS」**（cp.onamae.ne.jp → ドメイン → DNS）で管理されている（ネームサーバーが ns-rs1/2.gmoserver.jp のため）。独自ドメイン接続のときもここを触る
+  - 追加したレコード：TXT `resend._domainkey`／CNAME `rsend`・`send`／TXT `_dmarc`。既存の MX・SPF・`default._domainkey` は無変更
 - [ ] 地図の表示位置が正しいか確認（旧サイトの埋め込みURLを流用中）
 - [ ] 公式LINE URL `https://lin.ee/iLw0kzs` の有効性確認
 - [ ] 届出番号 J2500301 を届出受理通知の原本と照合
