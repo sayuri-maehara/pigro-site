@@ -185,9 +185,10 @@ assets/         画像一式
 
 - **Vercel 無料プラン（Hobby）で公開する**。GitHub は `sayuri-maehara/pigro-site`。公開URL: https://pigro-site.vercel.app/ （2026-09-16 初回デプロイ）
 - **独自ドメイン接続完了（2026-09-21）**。正式URLは **`https://pigro-fukuoka.com/`**（新サイト）。手順：まず `new.pigro-fukuoka.com` をサブドメインで公開して代表が確認 → 同日中に代表承認のうえルートを切替。旧サイト（レンタルサーバー上の HTML）は表示されなくなったがファイルは残っている
-- **DNS の現状（サーバーDNS cp.onamae.ne.jp）**：A `pigro-fukuoka.com`（ホスト名 空欄）＝ **`216.198.79.1`**（Vercel）／CNAME `new` → `ce300f23dcd1d939.vercel-dns-017.com`／MX（mail21.onamae.ne.jp 優先度10）・SPF・DKIM・`mail`/`ml-cp` の A（150.95.219.209）は無変更
+- **DNS の現状（サーバーDNS cp.onamae.ne.jp）**：A `pigro-fukuoka.com`（ホスト名 空欄）＝ **`216.198.79.1`**（Vercel）／A `www` ＝ `216.198.79.1`（旧サーバー値から書換）／CNAME `new` → `ce300f23dcd1d939.vercel-dns-017.com`／MX（mail21.onamae.ne.jp 優先度10）・SPF・DKIM・`mail`/`ml-cp` の A（150.95.219.209）は無変更
 - **旧サイトに戻す方法**：A レコードの値を **`157.120.209.54`** に戻すだけ（数分で復活）。切替後にフォーム送信・自動返信・通常メール送受信が正常なことを確認済み（2026-09-21）
 - canonical・og:url・og:image・JSON-LD の url/image は `https://pigro-fukuoka.com/…`（切替後に戻した）
+- **Vercel のドメイン設定**：`pigro-fukuoka.com`＝Production／`www.` と `new.` は **308 で `pigro-fukuoka.com` に転送**（「apex および www バリアントを含める」「ルートを www にリダイレクト」のチェックは外してある。www なしが正式URL）
 - 無料プランは規約上「個人・非営利向け」と承知のうえで使用。Vercel から有料化の連絡が来たら、
   **Cloudflare Pages（0円・商用可）＋ Web3Forms（フォーム）に移行する**（README の方式B）。
   移行時の作業：Cloudflare 連携／`index.html` の `ENDPOINT` を Web3Forms に変更／`api/` 削除／お名前.com の DNS 変更／プライバシーポリシーに外部サービス利用の一文追記
