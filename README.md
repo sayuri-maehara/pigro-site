@@ -87,7 +87,7 @@ body: JSON.stringify(Object.assign({ access_key: 'ここにAccess Key' }, data))
 - [x] Google Search Console にサイトを登録（2026-09-21 完了。HTML ファイル確認 `googlee0496b266d01541e.html`＝削除禁止。sitemap.xml 送信済み。オーナー：前原＋安武）
 - [x] 地図に表示される場所が正しいか確認（2026-09-21 確認）
 - [x] 公式LINEのURL `https://lin.ee/YpWrTZ3` が有効か確認（2026-09-21 公式アカウント @049znpkj に差し替え済み）
-- [ ] Instagram のリンクを残すか判断（投稿が営業に使える内容かどうかで決める）
+- [x] Instagram のリンクを残すか判断（2026-09-21 代表確認：このまま残す）
 
 ## 配色
 
