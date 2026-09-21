@@ -185,6 +185,7 @@ assets/         画像一式
 
 - **Vercel 無料プラン（Hobby）で公開する**。GitHub は `sayuri-maehara/pigro-site`。公開URL: https://pigro-site.vercel.app/ （2026-09-16 初回デプロイ）
 - **独自ドメインは サブドメイン方式**（2026-09-21 接続完了）。`https://new.pigro-fukuoka.com/` で新サイトを表示。ルートの `pigro-fukuoka.com` は旧サイトのまま（代表の「旧サイトを残したまま新サイトも見たい」に対応）。サーバーDNSに CNAME `new` → `ce300f23dcd1d939.vercel-dns-017.com` を追加しただけで、既存の A・MX・TXT は無変更。ルートを新サイトに切り替えるかは代表判断待ち
+- **canonical・og:url・og:image・JSON-LD の url/image は `https://new.pigro-fukuoka.com/…` に設定済み**（2026-09-21。旧ドメインのままだと OGP 画像が 404 で共有プレビューが出ないため）。**ルートドメインに切り替えたら、index.html 5か所＋privacy.html 1か所を `https://pigro-fukuoka.com/…` に戻すこと**
 - 無料プランは規約上「個人・非営利向け」と承知のうえで使用。Vercel から有料化の連絡が来たら、
   **Cloudflare Pages（0円・商用可）＋ Web3Forms（フォーム）に移行する**（README の方式B）。
   移行時の作業：Cloudflare 連携／`index.html` の `ENDPOINT` を Web3Forms に変更／`api/` 削除／お名前.com の DNS 変更／プライバシーポリシーに外部サービス利用の一文追記
