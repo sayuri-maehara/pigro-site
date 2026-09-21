@@ -142,11 +142,12 @@ ul,ol{list-style:none; padding:0}
 /* ============ Hero ============ */
 .hero{padding:clamp(56px,9vw,104px) 0 clamp(64px,9vw,110px)}
 .hero-grid{display:grid; grid-template-columns:1fr 300px; gap:clamp(32px,6vw,72px); align-items:center}
-.eyebrow{
-  font-family:var(--f-util); font-size:12px; font-weight:400; letter-spacing:.22em;
-  color:var(--accent); text-transform:uppercase; display:flex; align-items:center; gap:12px; margin-bottom:26px;
+.hero-name{
+  font-family:var(--f-disp); font-size:clamp(18px,1.6vw,22px); font-weight:600; letter-spacing:.06em;
+  color:var(--navy); display:flex; align-items:center; gap:14px; margin-bottom:22px;
 }
-.eyebrow::after{content:""; flex:1; height:1px; background:var(--sand-2); max-width:120px}
+.hero-name small{font-family:var(--f-body); font-size:16px; font-weight:400; letter-spacing:.04em; color:var(--ink-mid); margin-left:-.25em}
+.hero-name::after{content:""; flex:1; height:1px; background:var(--sand-2); max-width:120px}
 .hero h1{
   font-family:var(--f-disp); font-weight:600; line-height:1.28; letter-spacing:.02em;
   font-size:clamp(38px,7.4vw,72px); margin-bottom:28px; color:var(--navy);
@@ -436,7 +437,7 @@ ul,ol{list-style:none; padding:0}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Fukuoka&nbsp;/&nbsp;Daimyo</p>
+      <p class="hero-name"><span>Pigro株式会社<small>（ピグロ）</small></span></p>
       <h1>整えてから、<br><em>攻める。</em></h1>
       <p class="hero-sub">福岡で、経営・採用・通信の相談に乗る会社です。</p>
       <p class="hero-note">ご相談は無料。まずは現状をお聞かせください。</p>
@@ -507,8 +508,8 @@ ul,ol{list-style:none; padding:0}
           <ul class="biz-can">
             <li><b>求人と求職者、両方のデータベース</b>　複数の求人媒体・求人データベースとの提携による約15万件の求人データ（2026年9月時点）が、幅広い求職者を集めます。その求職者データベースとマッチングプラットフォームを掛け合わせ、御社に合う人材をご紹介します</li>
             <li><b>完全成功報酬</b>　採用が決まるまで、ご紹介料はいただきません。入社後の定着フォローまで対応します</li>
-            <li><b>職種は幅広く、20〜30代が中心</b>　製造・物流・建設・飲食・介護から事務職まで。求人・求職者ともに全国に対応しています</li>
-            <li><b>外国人材は送り出し機関と直接連携</b>　留学生から国内で就業中の方まで。初めての受け入れも、手順から一緒に進めます</li>
+            <li><b>職種は幅広く、20〜30代が中心</b>　製造・物流・建設（現場施工作業を除く）・飲食・介護から事務職まで。求人・求職者ともに全国に対応しています</li>
+            <li><b>外国人材の紹介にも対応</b>　国内の留学生や、すでに日本で就業中の方が中心。受け入れ手順の整理もご一緒します（在留資格の申請手続きは専門家をご紹介）</li>
           </ul>
         </div>
 
@@ -527,7 +528,7 @@ ul,ol{list-style:none; padding:0}
           <h4>お仕事をお探しの方へ</h4>
           <p class="biz-lead">複数の求人媒体・求人データベースとの提携による<b>約15万件の求人データ</b>から、あなたに合う仕事をご案内します。</p>
           <ul class="biz-can">
-            <li><b>職種は幅広く</b>　製造・物流・建設・飲食・介護から事務職まで。20〜30代の方の転職・就職を中心に</li>
+            <li><b>職種は幅広く</b>　製造・物流・建設（現場施工作業を除く）・飲食・介護から事務職まで。20〜30代の方の転職・就職を中心に</li>
             <li><b>外国人の方も歓迎</b>　留学生の方、すでに日本で働いている方、どちらもご相談ください</li>
             <li><b>費用はかかりません</b>　求職者の方からいただく費用は一切ありません。エントリーは LINE で簡単、面談は Web・来社どちらでも</li>
           </ul>
@@ -570,7 +571,7 @@ ul,ol{list-style:none; padding:0}
     </div>
     <p class="svc-note">
       有料職業紹介事業の手数料に関する事項・返戻金制度・実績等の法定開示情報は、厚生労働省「人材サービス総合サイト」にて公表しています。
-      <a href="https://www.jinzai.mhlw.go.jp/GIPA/" target="_blank" rel="noopener">人材サービス総合サイトを見る</a>
+      <a href="https://jinzai.hellowork.mhlw.go.jp/JinzaiWeb/GICB102030.do?screenId=GICB102030&amp;action=detail&amp;detkey_Detail=40-%E3%83%A6-301648%2C1+++++" target="_blank" rel="noopener">人材サービス総合サイトで当社の情報を見る</a>
     </p>
   </div>
 </section>
@@ -767,7 +768,7 @@ ul,ol{list-style:none; padding:0}
         <a href="#company">会社概要</a>
         <a href="#contact">お問い合わせ</a>
         <a href="/privacy.html">プライバシーポリシー</a>
-        <a href="https://www.jinzai.mhlw.go.jp/GIPA/" target="_blank" rel="noopener">人材サービス総合サイト</a>
+        <a href="https://jinzai.hellowork.mhlw.go.jp/JinzaiWeb/GICB101010.do?action=initDisp&amp;screenId=GICB101010" target="_blank" rel="noopener">人材サービス総合サイト</a>
         <a href="https://lin.ee/iLw0kzs" target="_blank" rel="noopener">公式LINE</a>
         <a href="https://www.instagram.com/pigrofukuoka/" target="_blank" rel="noopener">Instagram</a>
       </nav>
