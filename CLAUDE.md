@@ -204,5 +204,6 @@ assets/         画像一式
 - [x] 公式LINE URL の確認（2026-09-21 完了）。**旧サイトから流用していた `lin.ee/iLw0kzs` は別アカウント（@584wifep）に飛んでいた**。代表の管理画面で確認した正しい公式アカウントは「Pigro株式会社【公式】」ベーシックID `@049znpkj`、友だち追加URL **`https://lin.ee/YpWrTZ3`** に差し替え済み（index.html 4か所）
 - [x] 届出番号 J2500301 の照合（2026-09-21 総務省公表の「販売代理店の届出一覧」Excel で確認。J2500301＝Pigro株式会社、法人番号 5290001103768、九州総合通信局、委託元：日本電気通信事業株式会社、MVNO 役務。一覧は https://www.soumu.go.jp/main_sosiki/joho_tsusin/d_syohi/135414.html ）
 - [x] 人材サービス総合サイトへの掲載有無を確認（2026-09-21 掲載確認済み。許可 令和7年9月1日、取扱職種：全職種、取扱地域：**国内**、手数料表・返戻金制度PDF登録済み。旧URL `www.jinzai.mhlw.go.jp` はドメイン消滅のため `jinzai.hellowork.mhlw.go.jp` に修正済み）
+- [x] Google Search Console 登録（2026-09-21。確認ファイル `googlee0496b266d01541e.html` は**削除しない**。robots.txt・sitemap.xml あり。オーナー：前原・安武）
 - [ ] 写真の追加（撮影後。優先順位は README.md 参照）
 - [ ] プライバシーポリシーの専門家チェック
